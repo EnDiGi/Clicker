@@ -4,7 +4,7 @@
 from tkinter import *
 from tkinter import messagebox
 
-# NOTE: The comments are the values that should be there. Be free to increase or decrease them as you want
+# NOTE: The comments are the values that should be there. Feel free to increase or decrease them as you want
 clicks = 0 # 0
 coins = 0 # 0
 click_multiplier = 1 # 1
