@@ -9,12 +9,12 @@ clicks = 0 # 0
 coins = 0 # 0
 click_multiplier = 1 # 1
 coin_multiplier = 1 # 1
-a = 1 # 1
-b = 1 # 1
-c = True # True
-autoclick = False # False
+a = 1
+b = 1
+c = True
+autoclick = False
 aclick_speed = 2000 # 2000
-buyed = False # False
+buyed = False
 
 notification = lambda: messagebox.showinfo("News", "A new level of\ncoin multiplier\nhas been unlocked!")
 
@@ -24,63 +24,70 @@ window.resizable(False, False)
 window.title("Clicker")
 
 def refresh_shop(coins, click_multiplier):
-  global click_mult, click_mult_cost, coin_mult, coin_mult_cost, c
+  global click_mult, click_mult_cost, coin_mult, coin_mult_cost, c, buyed, autoclicker_btn, autoclicker_cost
 
   if coins >= 500:
-    coin_mult.config(text = "Coins per click + 10", command = lambda: coin_add(10, 500))
-    coin_mult_cost.config(text = 500, command = lambda: coin_add(10, 500))
+    coin_mult.config(text="Coins per click + 10", command=lambda: coin_add(10, 500))
+    coin_mult_cost.config(text=500, command=lambda: coin_add(10, 500))
 
   if coins >= 5000:
-    coin_mult.config(text = "Coins per click + 100", command = lambda: coin_add(100, 5000))
-    coin_mult_cost.config(text = 5000, command = lambda: coin_add(100, 5000))
+    coin_mult.config(text="Coins per click + 100", command=lambda: coin_add(100, 5000))
+    coin_mult_cost.config(text=5000, command=lambda: coin_add(100, 5000))
 
   if coins >= 10000:
-    coin_mult.config(text = "Coins per click + 250", command = lambda: coin_add(250, 10000))
-    coin_mult_cost.config(text = "10k", command = lambda: coin_add(250, 10000))
+    coin_mult.config(text="Coins per click + 250", command=lambda: coin_add(250, 10000))
+    coin_mult_cost.config(text="10k", command=lambda: coin_add(250, 10000))
 
   if coins >= 20000:
-    coin_mult.config(text = "Coins per click + 500", command = lambda: coin_add(500, 20000))
-    coin_mult_cost.config(text = "20k", command = lambda: coin_add(500, 20000))
+    coin_mult.config(text="Coins per click + 500", command=lambda: coin_add(500, 20000))
+    coin_mult_cost.config(text="20k", command=lambda: coin_add(500, 20000))
 
   if coins >= 50000:
-    coin_mult.config(text = "Coins per click + 1000", command = lambda: coin_add(1000, 50000))
-    coin_mult_cost.config(text = "50k", command = lambda: coin_add(1000, 50000))
+    coin_mult.config(text="Coins per click + 1000", command=lambda: coin_add(1000, 50000))
+    coin_mult_cost.config(text="50k", command=lambda: coin_add(1000, 50000))
 
   if coins >= 1000000:
-    coin_mult.config(text = "Coins per click + 1000000", command = lambda: coin_add(1000000, 1000000))
-    coin_mult_cost.config(text = "1mln", command = lambda: coin_add(1000000, 1000000)) 
+    coin_mult.config(text="Coins per click + 1000000", command=lambda: coin_add(1000000, 1000000))
+    coin_mult_cost.config(text="1mln", command=lambda: coin_add(1000000, 1000000))
 
-
-  if click_multiplier >= 1.2 and c: # I use c later to disable the button 
-    click_mult.config(text = "Click x 1.5", command = lambda: click_add(1.5, 10000))
-    click_mult_cost.config(text = "7500", command = lambda: click_add(2, 7500))
+  if click_multiplier >= 1.2 and c:  # Uso di c per disabilitare il pulsante 
+    click_mult.config(text="Click x 1.5", command=lambda: click_add(1.5, 10000))
+    click_mult_cost.config(text="7500", command=lambda: click_add(2, 7500))
 
   if click_multiplier >= 1.5 and c:
-    click_mult.config(text = "Click x 2", command = lambda: click_add(2, 10000))
-    click_mult_cost.config(text = "20k", command = lambda: click_add(2, 20000))
+    click_mult.config(text="Click x 2", command=lambda: click_add(2, 10000))
+    click_mult_cost.config(text="20k", command=lambda: click_add(2, 20000))
 
   if click_multiplier >= 2 and c:
-    click_mult.config(text = "Click x 5", command = lambda: click_add(5, 10000))
-    click_mult_cost.config(text = "100k", command = lambda: click_add(5, 100000))
+    click_mult.config(text="Click x 5", command=lambda: click_add(5, 10000))
+    click_mult_cost.config(text="100k", command=lambda: click_add(5, 100000))
 
   if click_multiplier == 5 and c:
-    click_mult.config(text = "Click x 10", command = lambda: click_add(10, 250000))
-    click_mult_cost.config(text = "250k", command = lambda: click_add(10, 250000))
+    click_mult.config(text="Click x 10", command=lambda: click_add(10, 250000))
+    click_mult_cost.config(text="250k", command=lambda: click_add(10, 250000))
 
   if click_multiplier == 10 and c:
-    click_mult.config(text = "Click x 50", command = lambda: click_add(50, 1000000))
-    click_mult_cost.config(text = "1mln", command = lambda: click_add(50, 1000000))
+    click_mult.config(text="Click x 50", command=lambda: click_add(50, 1000000))
+    click_mult_cost.config(text="1mln", command=lambda: click_add(50, 1000000))
 
   if click_multiplier == 50 and c:
-    click_mult.config(text = "Click x 500", command = lambda: click_add(500, 10000000))
-    click_mult_cost.config(text = "10mln", command = lambda: click_add(500, 10000000))
+    click_mult.config(text="Click x 500", command=lambda: click_add(500, 10000000))
+    click_mult_cost.config(text="10mln", command=lambda: click_add(500, 10000000))
 
   if click_multiplier == 500 and c:
-    click_mult.config(text = "Max", state = DISABLED)
+    click_mult.config(text="Max", state=DISABLED)
     c = False
     click_mult_cost.destroy()
-    click_mult.place(x = 0, y = 75, width = 590)
+    click_mult.place(x=0, y=75, width=590)
   refresh_home(coins, clicks)
+  
+  if buyed:
+    if autoclick:
+      autoclicker_btn.config(command=disable_autoclicker)
+      autoclicker_cost.config(command=disable_autoclicker, text="Deactivate", font=("consolas", 5))
+    else:
+      autoclicker_btn.config(command=enable_autoclicker)
+      autoclicker_cost.config(command=enable_autoclicker, text="Activate", font=("consolas", 7))
 
 def refresh_stats(coin_multiplier, click_multiplier, aclick_speed):
   global coin_info, click_info, buyed, aclick_info, aclick_speed_info, autoclick
@@ -98,7 +105,7 @@ def refresh_stats(coin_multiplier, click_multiplier, aclick_speed):
       auto_speed = 0
 
     aclick_info.config(text=f"AutoClicker state: {state_aclick}")
-    aclick_speed_info.config(text=f"AutoClicker speed: {auto_speed}click/s")
+    aclick_speed_info.config(text=f"AutoClicker speed: {auto_speed} click/s")
 
   except:
         pass
@@ -200,7 +207,7 @@ def open_stats():
   aclick_speed_info.place(width = 650, height = 75, y = 225)
 
 def open_shop():
-  global click_multiplier, coin_multiplier, coin_mult, click_mult, click_mult_cost, coin_mult_cost, coins, autoclicker_btn, autoclicker_cost, ac_speed_btn, ac_speed_cost
+  global click_multiplier, coin_multiplier, coin_mult, click_mult, click_mult_cost, coin_mult_cost, coins, autoclicker_btn, autoclicker_cost, ac_speed_btn, ac_speed_cost, buyed
 
   shopscreen = Toplevel(window)
   shopscreen.resizable(False, False)
@@ -217,9 +224,9 @@ def open_shop():
   click_mult.place(x = -10, y = 75, height = 75, width = 495)
   click_mult_cost.place(x = 485, y = 75, height = 75, width = 105)
 
-  autoclicker_btn = Button(shopscreen, text = "AutoClicker", command = lambda: enable_autoclicker(), font = ("consolas", 10))
+  autoclicker_btn = Button(shopscreen, text = "AutoClicker", font = ("consolas", 10), command = lambda: buy_autoclicker())
   autoclicker_btn.place(x = -10, y = 150, width = 495, height = 75)
-  autoclicker_cost = Button(shopscreen, text = "30k", command = lambda: enable_autoclicker(), font = ("consolas", 10))
+  autoclicker_cost = Button(shopscreen, text = "30k", command = lambda: buy_autoclicker(), font = ("consolas", 10))
   autoclicker_cost.place(x = 485, y = 150, width = 105, height = 75)
   ac_speed_btn = Button(shopscreen, text = "AutoClicker speed (1/s)", command = lambda: change_ac_speed(1000, 50000), font = ("consolas", 10))
   ac_speed_cost = Button(shopscreen, text = "50k", command = lambda: change_ac_speed(1000, 50000), font = ("consolas", 10))
@@ -229,7 +236,7 @@ def open_shop():
   refresh_shop(coins, click_multiplier)
 
 def change_ac_speed(value, cost): # Change AutoClicker Speed
-  global aclick_speed, buyed, b, ac_speed_btn, ac_speed_cost, coins
+  global aclick_speed, buyed, b, ac_speed_btn, ac_speed_cost, coins, buyed, autoclicker_cost, autoclicker_btn
 
   if coins >= cost:
     coins -= cost
@@ -284,30 +291,35 @@ def change_ac_speed(value, cost): # Change AutoClicker Speed
       ac_speed_btn.config(text = "Max", state = DISABLED)
       ac_speed_btn.place(x = 0, y = 225, width = 590)
       ac_speed_cost.destroy()
-
+    
   refresh_home(coins, clicks)
   refresh_stats(coin_multiplier, click_multiplier, aclick_speed)
 
+def buy_autoclicker():
+  global buyed, coins
+  
+  if coins >= 30000:
+    coins -= 30000
+    buyed = True
+    enable_autoclicker()
+  
 def enable_autoclicker():
-   global autoclick, coins, aclick_speed, autoclicker_btn, autoclicker_cost, buyed
-
-   if coins >= 30000 and not buyed:
-     coins -= 30000
-     buyed = True
-   if buyed:
+   global autoclick, coins, aclick_speed, autoclicker_btn, autoclicker_cost
+     
+   if buyed and not autoclick:
      autoclick = True
      autoclicker()
      autoclicker_btn.config(command = disable_autoclicker)
-     autoclicker_cost.config(text = "Deactivate", command = disable_autoclicker, font = ("consolas", 6))
+     autoclicker_cost.config(text = "Deactivate", command = disable_autoclicker, font = ("consolas", 5))
      refresh_shop(coins, click_multiplier)
      refresh_stats(coin_multiplier, click_multiplier, aclick_speed)
 
 def disable_autoclicker():
-   global autoclick, aclick_speed
-
+   global autoclick, aclick_speed, autoclicker_cost, autoclicker_btn, click_multiplier, coins, coin_multiplier   
+   
    autoclick = False # Given that autoclicker() checks the variable autoclick every time that it clicks the button, setting it to False will make it stop running
+   autoclicker_cost.config(text = "Activate", command = enable_autoclicker, font = ("consolas", 7))
    autoclicker_btn.config(command = enable_autoclicker)
-   autoclicker_cost.config(text = "Activate", command = enable_autoclicker, font = ("consolas", 10))
    refresh_shop(coins, click_multiplier)
    refresh_stats(coin_multiplier, click_multiplier, aclick_speed)
 
@@ -317,7 +329,6 @@ def autoclicker():
   if autoclick:
     click()
     window.after(aclick_speed, autoclicker)
-    refresh_stats(coin_multiplier, click_multiplier, aclick_speed)
 
 # Buttons
 button = Button(window, bg = "red", command = click, activebackground = "red", border = 5)
