@@ -330,8 +330,8 @@ number.place(x = 50, y = 440, width = 400)
 coinindicator.place(x = 0, y = 0)
 
 shop = Button(window, text = "Shop", command = open_shop, font = ("consolas", 8), width = 10)
-shop.place(x = 400, y = 0)
+shop.place(relx = 1.0, rely = 0.0, anchor='ne')
 stats = Button(window, text = "Stats", command = open_stats, font = ("consolas", 8), width = 10)
-stats.place(x = 200, y = 500)
+stats.place(relx = 0.5, rely = 1.0, anchor='s')
 
 window.mainloop()
