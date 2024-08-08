@@ -34,23 +34,24 @@ def refresh_shop(coins, click_multiplier):
     coin_mult.config(text="Coins per click + 100", command=lambda: coin_add(100, 5000))
     coin_mult_cost.config(text=5000, command=lambda: coin_add(100, 5000))
 
-  if coins >= 10000:
-    coin_mult.config(text="Coins per click + 250", command=lambda: coin_add(250, 10000))
-    coin_mult_cost.config(text="10k", command=lambda: coin_add(250, 10000))
+  if coins >= 12000:
+    coin_mult.config(text="Coins per click + 250", command=lambda: coin_add(250, 12000))
+    coin_mult_cost.config(text="12k", command=lambda: coin_add(250, 10000))
 
-  if coins >= 20000:
-    coin_mult.config(text="Coins per click + 500", command=lambda: coin_add(500, 20000))
-    coin_mult_cost.config(text="20k", command=lambda: coin_add(500, 20000))
+  if coins >= 25000:
+    coin_mult.config(text="Coins per click + 500", command=lambda: coin_add(500, 25000))
+    coin_mult_cost.config(text="25k", command=lambda: coin_add(500, 25000))
 
   if coins >= 50000:
     coin_mult.config(text="Coins per click + 1000", command=lambda: coin_add(1000, 50000))
     coin_mult_cost.config(text="50k", command=lambda: coin_add(1000, 50000))
 
   if coins >= 1000000:
-    coin_mult.config(text="Coins per click + 1000000", command=lambda: coin_add(1000000, 1000000))
-    coin_mult_cost.config(text="1mln", command=lambda: coin_add(1000000, 1000000))
+    coin_mult.config(text="Coins per click + 10000", command=lambda: coin_add(10000, 1000000))
+    coin_mult_cost.config(text="1mln", command=lambda: coin_add(10000, 1000000))
 
-  if click_multiplier >= 1.2 and c:  # Uso di c per disabilitare il pulsante 
+  
+  if click_multiplier >= 1.2 and c:  # c is used later to disable the button
     click_mult.config(text="Click x 1.5", command=lambda: click_add(1.5, 10000))
     click_mult_cost.config(text="7500", command=lambda: click_add(2, 7500))
 
@@ -112,10 +113,9 @@ def refresh_stats(coin_multiplier, click_multiplier, aclick_speed):
 
 def refresh_home(coins, clicks):
   global number, coinindicator
-
-  numbershown = round(clicks, 1) if clicks <= 5000 else round(clicks) # Only show the decimals if you have less than 5000 clicks
-  number.config(text = f"You clicked me {numbershown} times!")
-  coinsshown = round(coins, 1) if coins <= 5000   else round(coins) # Same but with coins
+  
+  number.config(text = f"You clicked me {clicks} times!")
+  coinsshown = round(coins, 1) if coins <= 5000   else round(coins) # Only show the decimals if you have less than 5000 clicks
   coinindicator.config(text = f"{coinsshown} coins")
 
 def click():
@@ -144,11 +144,11 @@ def click():
     a += 1
     notification()
 
-  if coins >= 10000 and a == 3:
+  if coins >= 12000 and a == 3:
     a += 1
     notification()
 
-  if coins >= 20000 and a == 4:
+  if coins >= 25000 and a == 4:
     a += 1
     notification()
 
