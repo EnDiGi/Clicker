@@ -1,5 +1,5 @@
 #! python3
-# Clicker.py - A simple (and not funny) clicker game
+# Clicker - A simple (and not funny) clicker game
 
 from tkinter import *
 from tkinter import messagebox
