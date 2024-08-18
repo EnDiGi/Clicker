@@ -34,11 +34,11 @@ def refresh_shop(coins, click_multiplier):
     coin_mult.config(text="Coins per click + 100", command=lambda: coin_add(100, 5000))
     coin_mult_cost.config(text=5000, command=lambda: coin_add(100, 5000))
 
-  if coins >= 12000:
+  if coins >= 10000:
     coin_mult.config(text="Coins per click + 250", command=lambda: coin_add(250, 12000))
     coin_mult_cost.config(text="12k", command=lambda: coin_add(250, 10000))
 
-  if coins >= 25000:
+  if coins >= 20000:
     coin_mult.config(text="Coins per click + 500", command=lambda: coin_add(500, 25000))
     coin_mult_cost.config(text="25k", command=lambda: coin_add(500, 25000))
 
